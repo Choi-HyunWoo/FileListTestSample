@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class FileListItemView extends FrameLayout {
 
     TextView fileNameView;
+    TextView filePathView;
 
     public FileListItemView(Context context) {
         super(context);
@@ -18,11 +19,13 @@ public class FileListItemView extends FrameLayout {
 
     private void init() {
         inflate(getContext(), R.layout.file_list_item, this);
-        fileNameView = (TextView)findViewById(R.id.text_filename);
+        fileNameView = (TextView)findViewById(R.id.text_fileName);
+        filePathView = (TextView)findViewById(R.id.text_filePath);
     }
 
-    public void setListItem(String fileName) {
-        fileNameView.setText(fileName);
+    public void setListItem(FileItem item) {
+        fileNameView.setText(item.name);
+        filePathView.setText(item.absolutePath);
     }
 
 
